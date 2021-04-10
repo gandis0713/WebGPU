@@ -1,0 +1,13 @@
+.github
+.vscode
+dist
+examples
+node_modules
+src
+.babelrc
+.gitignore
+.npmignore
+tsconfig.json
+webpack.config.js
+*.log
+*.lock

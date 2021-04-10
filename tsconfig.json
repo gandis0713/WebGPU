@@ -1,0 +1,13 @@
+{
+	"compilerOptions": {
+		"target": "esnext",
+		"moduleResolution": "node",
+    "allowJs": false,
+    "outDir": "./",
+		"isolatedModules": true,
+    "esModuleInterop": true,
+    "declaration": true
+	},
+	"include": ["Src"],
+  "exclude": ["node_modules"]
+}
