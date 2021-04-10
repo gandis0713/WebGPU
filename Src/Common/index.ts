@@ -1,3 +1,1 @@
-import * as Data from './Data/Core';
-
-export { Data };
+export * as DataCore from './Data/Core';
