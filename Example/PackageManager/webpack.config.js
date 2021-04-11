@@ -6,7 +6,7 @@ const vtkRules = require('vtk.js/Utilities/config/dependency.js').webpack.core
   .rules;
 
 module.exports = {
-  entry: './src/index.tsx',
+  entry: ['babel-polyfill', './src/index.tsx'],
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname + '/build'),
@@ -18,9 +18,9 @@ module.exports = {
   devServer: {
     contentBase: path.resolve('./public'),
     index: 'index.html',
-    port: 3000,
+    port: 4141,
     historyApiFallback: true,
-    publicPath: 'http://localhost:3000/',
+    publicPath: 'http://localhost:4141/',
     writeToDisk: true,
   },
   mode: 'development',
