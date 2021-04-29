@@ -1,8 +1,8 @@
 {
-  "name": "webgpu-example",
+  "name": "wgpu-ts",
   "version": "0.0.0",
   "description": "The project is used on Blog or Web Site.",
-  "main": "./dist/webgpu-example.js",
+  "main": "./dist/wgpu-ts.js",
   "author": {
     "name": "gandis",
     "email": "gandis0713@gmail.com",
@@ -23,10 +23,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/gandis0713/WebGPU.git"
+    "url": "https://github.com/gandis0713/wgpu-ts.git"
   },
   "bugs": {
-    "url": "https://github.com/gandis0713/WebGPU/issues"
+    "url": "https://github.com/gandis0713/wgpu-ts/issues"
   },
   "engines": {
     "node": "^12.18.3",
