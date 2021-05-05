@@ -35,5 +35,9 @@ export abstract class AbstractGeometry {
     return this.lineIndexArray;
   }
 
+  public setNormalType(normalType: NORMAL_TYPE): void {
+    this.normalType = normalType;
+  }
+
   protected build(): void {}
 }
