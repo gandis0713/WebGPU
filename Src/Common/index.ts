@@ -1,1 +1,1 @@
-export * as DataCore from './Data/Core';
+export * as DataCore from './data/core';

@@ -1,2 +1,2 @@
-export * as Common from './Common';
-export * as Rendering from './Rendering';
+export * as Common from './common';
+export * as Rendering from './rendering';

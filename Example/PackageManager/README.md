@@ -1,1 +1,0 @@
-# WebGPU Example for package manager.

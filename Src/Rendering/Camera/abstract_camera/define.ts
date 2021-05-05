@@ -1,4 +1,4 @@
-import { Vec3 } from '../../../Common/Data/Core';
+import { Vec3 } from '../../../common/Data/Core';
 
 export interface ILootAt {
   eye: Vec3;

@@ -1,1 +1,1 @@
-export * as Camera from './Camera';
+export * as Camera from './camera';

@@ -1,4 +1,4 @@
-import AbstractWindow from './AbstractWindow';
+import AbstractWindow from './abstract_window';
 
 export default {
   AbstractWindow,
