@@ -1,4 +1,4 @@
-import { Mat4, ArrayType } from '../../../common/Data/Core';
+import { Mat4, ArrayType } from '../../../common/data/core';
 import { mat4 } from 'gl-matrix';
 import { ILootAt, IFrustum } from './define';
 

@@ -1,4 +1,4 @@
-import AbstractCamera from '../AbstractCamera';
+import AbstractCamera from '../abstract_camera';
 
 class PerspectiveCamera extends AbstractCamera {
   protected setProperty(): void {

@@ -1,4 +1,4 @@
-import AbstractCamera from '../AbstractCamera';
+import AbstractCamera from '../abstract_camera';
 import { mat4 } from 'gl-matrix';
 
 class OrthoGraphicCamera extends AbstractCamera {
