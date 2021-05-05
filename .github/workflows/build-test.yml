@@ -18,6 +18,7 @@ jobs:
       - name: Install dependencies
         run: yarn
       - name: Build
-        run: yarn build:release
+        run: yarn build:umd
+        run: yarn build:esm
       - name: Test
         run: echo "skip Test"

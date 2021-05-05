@@ -34,8 +34,8 @@
     "yarn": "^1.22.5"
   },
   "scripts": {
-    "build:bundle": "webpack",
-    "build:release": "tsc",
+    "build:umd": "webpack",
+    "build:esm": "tsc",
     "commit": "git-cz"
   },
   "devDependencies": {

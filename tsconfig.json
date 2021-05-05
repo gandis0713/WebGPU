@@ -3,7 +3,7 @@
     "target": "es6",
     "moduleResolution": "node",
     "allowJs": false,
-    "outDir": "./",
+    "outDir": "./dist",
     "isolatedModules": true,
     "esModuleInterop": true,
     "declaration": true
