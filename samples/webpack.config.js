@@ -14,7 +14,7 @@ module.exports = {
   devServer: {
     contentBase: path.resolve('./public'),
     index: 'index.html',
-    port: 4141,
+    port: 9870,
     historyApiFallback: true,
     publicPath: '/',
     writeToDisk: true,
