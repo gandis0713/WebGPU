@@ -7,7 +7,7 @@ module.exports = exports = {
     'airbnb',
     'prettier',
     'plugin:@typescript-eslint/eslint-recommended',
-    'plugin:@typescript-eslint/recommended'
+    'plugin:@typescript-eslint/recommended',
   ],
   ignorePatterns: ['/build', './src/serviceWorker.ts'],
   parser: '@typescript-eslint/parser',
@@ -15,17 +15,17 @@ module.exports = exports = {
   settings: {
     'import/resolver': {
       node: {
-        extensions: ['.js', '.jsx', '.ts', '.tsx']
-      }
-    }
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      },
+    },
   },
   rules: {
     'prettier/prettier': ['warning'],
     'react/jsx-filename-extension': [
       1,
       {
-        extensions: ['.js', '.jsx', '.ts', '.tsx']
-      }
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      },
     ],
     'import/extensions': [
       'error',
@@ -34,8 +34,8 @@ module.exports = exports = {
         js: 'never',
         jsx: 'never',
         ts: 'never',
-        tsx: 'never'
-      }
+        tsx: 'never',
+      },
     ],
     // allow console and debugger in development
     'no-console': process.env.NODE_ENV === 'production' ? ERROR : WARN,
@@ -43,20 +43,20 @@ module.exports = exports = {
     // warn: Something is defined but never used
     'no-unused-vars': [
       WARN,
-      { vars: 'all', args: 'after-used', ignoreRestSiblings: false }
+      { vars: 'all', args: 'after-used', ignoreRestSiblings: false },
     ],
     // warn: Prefer default export
     'import/prefer-default-export': WARN,
     // warn: Something is already declared in the upper scope
     'no-shadow': [
       WARN,
-      { builtinGlobals: false, hoist: 'functions', allow: [] }
+      { builtinGlobals: false, hoist: 'functions', allow: [] },
     ],
     'no-console': 'off',
-    'no-alert': 'off'
+    'no-alert': 'off',
   },
   env: {
     browser: true,
-    jest: true
-  }
+    jest: true,
+  },
 };

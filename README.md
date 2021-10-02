@@ -8,4 +8,7 @@ The aim of the project is to study a way to rendering and visualization 3D objec
 Samples Usage
 =============
 
-TODO
+~~~
+$> cd samples
+$> yarn & yarn start
+~~~
