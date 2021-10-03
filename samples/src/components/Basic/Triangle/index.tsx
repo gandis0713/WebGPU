@@ -1,6 +1,5 @@
 import React, { ReactElement, useEffect } from 'react';
-import wgslVertex from './wgsl/vertex.wgsl';
-import * as Engine from '../../../../../engine/build';
+import * as WebGPULib from 'WebGPULib';
 
 interface ITriangle {}
 const Triangle = (): ReactElement<ITriangle> => {
@@ -65,13 +64,13 @@ const Triangle = (): ReactElement<ITriangle> => {
       const pipeline: GPURenderPipeline = device.createRenderPipeline({
         vertex: {
           module: device.createShaderModule({
-            code: wgslVertex,
+            code: WebGPULib.ShaderLib.phong.vertex,
           }),
           entryPoint: 'main',
         },
         fragment: {
           module: device.createShaderModule({
-            code: Engine.ShaderLib.phong,
+            code: WebGPULib.ShaderLib.phong.fragment,
           }),
           entryPoint: 'main',
           targets: [

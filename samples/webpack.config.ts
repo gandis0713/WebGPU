@@ -11,9 +11,6 @@ module.exports = {
     path: path.resolve(__dirname + '/build'),
     publicPath: '/',
   },
-  resolve: {
-    extensions: ['.js', '.jsx', '.ts', '.tsx'],
-  },
   devServer: {
     contentBase: path.resolve('./public'),
     index: 'index.html',
@@ -45,4 +42,10 @@ module.exports = {
       template: './public/index.html',
     }),
   ],
+  resolve: {
+    extensions: ['.js', '.jsx', '.ts', '.tsx'],
+    alias: {
+      WebGPULib: path.resolve(__dirname + './../build'),
+    },
+  },
 };
