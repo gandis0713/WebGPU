@@ -12,7 +12,7 @@ module.exports = {
     publicPath: '/',
   },
   devServer: {
-    contentBase: path.resolve('./public'),
+    contentBase: path.resolve(__dirname + '/public'),
     index: 'index.html',
     port: 9870,
     historyApiFallback: true,
@@ -45,7 +45,7 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx'],
     alias: {
-      WebGPULib: path.resolve(__dirname + './../build'),
+      WebGPULib: path.resolve(__dirname + '/../build'),
     },
   },
 };

@@ -8,6 +8,7 @@ module.exports = {
     filename: 'index.js',
     path: path.resolve(__dirname + './../build'),
     publicPath: '/',
+    libraryTarget: 'commonjs',
   },
   mode,
   module: {
