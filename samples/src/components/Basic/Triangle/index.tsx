@@ -1,5 +1,5 @@
 import React, { ReactElement, useEffect } from 'react';
-import * as WebGPULib from 'WebGPULib';
+import * as WebGPULib from '@WebGPULib';
 
 interface ITriangle {}
 const Triangle = (): ReactElement<ITriangle> => {
