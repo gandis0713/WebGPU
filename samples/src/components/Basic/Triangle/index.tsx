@@ -1,12 +1,12 @@
-import React, { ReactElement, useCallback, useEffect } from 'react';
+import React, { ReactElement, useEffect } from 'react';
 import wgslVertex from './wgsl/vertex.wgsl';
-import wgslFragment from './wgsl/fragment.wgsl';
+import * as Engine from '../../../../../engine/build';
 
 interface ITriangle {}
 const Triangle = (): ReactElement<ITriangle> => {
   console.log('create Triangle');
 
-  const onMounted = function() {
+  const onMounted = function () {
     const run = async () => {
       const { gpu }: Navigator = navigator;
       if (gpu === undefined) return;
@@ -71,7 +71,7 @@ const Triangle = (): ReactElement<ITriangle> => {
         },
         fragment: {
           module: device.createShaderModule({
-            code: wgslFragment,
+            code: Engine.ShaderLib.phong,
           }),
           entryPoint: 'main',
           targets: [
@@ -129,4 +129,4 @@ const Triangle = (): ReactElement<ITriangle> => {
   );
 };
 
-export default Triangle;
+export { Triangle };

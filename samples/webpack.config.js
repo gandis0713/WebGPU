@@ -1,8 +1,11 @@
 const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 
+const mode = process.env.NODE_ENV || 'development';
+console.log(__dirname);
+
 module.exports = {
-  entry: ['babel-polyfill', './src/index.tsx'],
+  entry: ['./src/index.tsx'],
   output: {
     filename: 'index.js',
     path: path.resolve(__dirname + '/build'),
@@ -19,7 +22,7 @@ module.exports = {
     publicPath: '/',
     writeToDisk: true,
   },
-  mode: 'development',
+  mode,
   module: {
     rules: [
       {

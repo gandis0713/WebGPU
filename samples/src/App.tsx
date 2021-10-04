@@ -15,9 +15,28 @@ import { makeStyles } from '@material-ui/core/styles';
 
 import { Switch, Route, Link as RouterLink } from 'react-router-dom';
 
-import Triangle from './component/Basic/Triangle/Triangle';
+import * as Components from './components';
+
+const ComponentType = {
+  Basic: 'Basic',
+};
+const BoxGeometry = `/${ComponentType.Basic}_${Components.Basic.BoxGeometry.name}`;
+const Triangle = `/${ComponentType.Basic}_${Components.Basic.Triangle.name}`;
 
 const drawerWidth = 240;
+
+const getSwitch = () => {
+  return (
+    <Switch>
+      <Route exact path={Triangle} component={Components.Basic.Triangle} />
+      <Route
+        exact
+        path={BoxGeometry}
+        component={Components.Basic.BoxGeometry}
+      />
+    </Switch>
+  );
+};
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -70,7 +89,7 @@ function App() {
           <List
             subheader={
               <ListSubheader>
-                Basic
+                {ComponentType.Basic}
                 <IconButton onClick={onExpandBasic}>
                   {basicExpand ? <ExpandLess /> : <ExpandMore />}
                 </IconButton>
@@ -78,22 +97,18 @@ function App() {
             }
           >
             <Collapse in={basicExpand} timeout="auto" unmountOnExit={false}>
-              <ListItem
-                button
-                key={0}
-                component={RouterLink}
-                to="/Bacis_Triangle"
-              >
-                Triangle
+              <ListItem button key={0} component={RouterLink} to={Triangle}>
+                {Components.Basic.Triangle.name}
+              </ListItem>
+              <ListItem button key={1} component={RouterLink} to={BoxGeometry}>
+                {Components.Basic.BoxGeometry.name}
               </ListItem>
             </Collapse>
           </List>
         </Drawer>
         <div className={classes.content}>
           <div className={classes.toolbar} />
-          <Switch>
-            <Route exact path="/Bacis_Triangle" component={Triangle} />
-          </Switch>
+          {getSwitch()}
         </div>
       </div>
     </div>
