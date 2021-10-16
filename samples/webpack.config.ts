@@ -5,6 +5,10 @@ const mode = process.env.NODE_ENV || 'development';
 const paths = {
   index: path.resolve(__dirname + '/src/index.tsx'),
   build: path.resolve(__dirname + '/build'),
+  module:
+    mode === 'development'
+      ? path.resolve(__dirname + '/../src/')
+      : path.resolve(__dirname + '/../build/'),
   public: {
     root: path.resolve(__dirname + '/public'),
     index: path.resolve(__dirname + '/public/index.html'),
@@ -52,7 +56,7 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx'],
     alias: {
-      '@WebGPULib': path.resolve(__dirname + '/../build'),
+      '@WebGPULib': paths.module,
     },
   },
 };

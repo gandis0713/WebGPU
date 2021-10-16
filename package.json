@@ -4,7 +4,9 @@
   "main": "./src/index.ts",
   "license": "MIT",
   "scripts": {
-    "start": "webpack-cli server --config ./samples/webpack.config.ts",
+    "start": "yarn start-dev",
+    "start-dev": "cross-env NODE_ENV=development webpack-cli server --config ./samples/webpack.config.ts",
+    "start-pro": "cross-env NODE_ENV=production webpack-cli server --config ./samples/webpack.config.ts",
     "copy-shader": "copyfiles -u 1 ./src/renderers/shaders/**/*.wgsl ./build/",
     "build": "tsc && yarn copy-shader",
     "clean-build": "rimraf ../build && yarn build"
@@ -26,6 +28,7 @@
     "babel-loader": "^8.0.6",
     "babel-polyfill": "^6.26.0",
     "copyfiles": "^2.4.1",
+    "cross-env": "^7.0.3",
     "css-loader": "^3.4.2",
     "gl-matrix": "^3.3.0",
     "html-webpack-plugin": "^5.3.1",
