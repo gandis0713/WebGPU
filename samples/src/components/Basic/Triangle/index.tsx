@@ -4,7 +4,6 @@ import * as WebGPULib from '@WebGPULib';
 interface ITriangle {}
 const Triangle = (): ReactElement<ITriangle> => {
   console.log('create Triangle');
-
   const onMounted = function () {
     const run = async () => {
       const { gpu }: Navigator = navigator;

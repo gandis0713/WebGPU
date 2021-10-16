@@ -1,6 +1,5 @@
 import React, { ReactElement, useEffect } from 'react';
-import wgslVertex from './wgsl/vertex.wgsl';
-import wgslFragment from './wgsl/fragment.wgsl';
+import * as WebGPULib from '@WebGPULib';
 
 interface IBoxGeometry {}
 const BoxGeometry = (): ReactElement<IBoxGeometry> => {
@@ -62,16 +61,24 @@ const BoxGeometry = (): ReactElement<IBoxGeometry> => {
         size: presentationSize,
       });
 
+      const verticesBuffer = device.createBuffer({
+        size: WebGPULib.BoxGeometry.byteLength,
+        usage: GPUBufferUsage.VERTEX,
+        mappedAtCreation: true,
+      });
+
+      console.log('verticesBuffer : ', verticesBuffer);
+
       const pipeline: GPURenderPipeline = device.createRenderPipeline({
         vertex: {
           module: device.createShaderModule({
-            code: wgslVertex,
+            code: WebGPULib.ShaderLib.phong.vertex,
           }),
           entryPoint: 'main',
         },
         fragment: {
           module: device.createShaderModule({
-            code: wgslFragment,
+            code: WebGPULib.ShaderLib.phong.fragment,
           }),
           entryPoint: 'main',
           targets: [
