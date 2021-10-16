@@ -4,6 +4,7 @@
   "main": "./src/index.ts",
   "license": "MIT",
   "scripts": {
+    "start": "webpack-cli server --config ./samples/webpack.config.ts",
     "copy-shader": "copyfiles -u 1 ./src/renderers/shaders/**/*.wgsl ./build/",
     "build": "tsc && yarn copy-shader",
     "clean-build": "rimraf ../build && yarn build"
