@@ -1,9 +1,0 @@
-{
-  "compilerOptions": {
-    "esModuleInterop": true,
-    "baseUrl": "./",
-		"paths": {
-			"@WebGPULib": ["../build/index.d.ts"],
-		}
-  }
-}

@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "declaration": true,
+    "noImplicitAny": true,
+    "outDir": "./build",
+    "baseUrl": "./",
+		"paths": {
+			"@WebGPULib": ["./build/index.d.ts"],
+		}
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules, ./samples/**/*, ./build/**/*"],
+}
