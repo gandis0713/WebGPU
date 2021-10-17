@@ -25,7 +25,7 @@ const Triangle = (): ReactElement<ITriangle> => {
       });
       if (adapter === null) return;
       const deviceDescriptor: GPUDeviceDescriptor = {
-        requiredFeatures: ['texture-compression-bc'],
+        requiredFeatures: ['texture-compression-bc'] as Iterable<GPUFeatureName>,
         requiredLimits: {
           maxInterStageShaderComponents: 60,
         },
@@ -63,13 +63,13 @@ const Triangle = (): ReactElement<ITriangle> => {
       const pipeline: GPURenderPipeline = device.createRenderPipeline({
         vertex: {
           module: device.createShaderModule({
-            code: WebGPULib.ShaderLib.phong.vertex,
+            code: WebGPULib.ShaderLib.noinput.vertex,
           }),
           entryPoint: 'main',
         },
         fragment: {
           module: device.createShaderModule({
-            code: WebGPULib.ShaderLib.phong.fragment,
+            code: WebGPULib.ShaderLib.noinput.fragment,
           }),
           entryPoint: 'main',
           targets: [
@@ -97,8 +97,8 @@ const Triangle = (): ReactElement<ITriangle> => {
               view: textureView,
               loadValue: { r: 0.0, g: 0.0, b: 0.0, a: 1.0 },
               storeOp: 'store',
-            },
-          ],
+            }
+          ] as Iterable<GPURenderPassColorAttachment>,
         };
 
         const passEncoder: GPURenderPassEncoder = commandEncoder.beginRenderPass(

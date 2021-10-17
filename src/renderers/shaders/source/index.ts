@@ -1,4 +1,6 @@
-import phong_vertex from './entry/phong/vertex.wgsl';
-import phong_fragment from './entry/phong/fragment.wgsl';
+import noinput_vertex from './entry/noinput/vertex.wgsl';
+import noinput_fragment from './entry/noinput/fragment.wgsl';
+import base_vertex from './entry/base/vertex.wgsl';
+import base_fragment from './entry/base/fragment.wgsl';
 
-export { phong_vertex, phong_fragment };
+export { noinput_vertex, noinput_fragment, base_vertex, base_fragment };
