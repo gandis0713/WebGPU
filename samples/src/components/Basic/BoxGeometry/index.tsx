@@ -1,6 +1,6 @@
 import React, { ReactElement, useEffect } from 'react';
 import * as WebGPULib from '@WebGPULib';
-import { mat4 } from 'gl-matrix';
+import { vec3, mat4 } from 'gl-matrix';
 
 interface IBoxGeometry {}
 
@@ -166,26 +166,42 @@ const BoxGeometry = (): ReactElement<IBoxGeometry> => {
         },
       };
 
+      const viewMatrix = mat4.create();
+      mat4.lookAt(viewMatrix, [5, 0, -5], [0, 0, 0], [0, 1, 0]);
+
       const aspect = canvas.width / canvas.height;
-      const projectionMatrix = mat4.create();
+      const projectionMatrix = mat4.create() as Float32Array;
       mat4.perspective(projectionMatrix, (2 * Math.PI) / 5, aspect, 1, 100.0);
+
+      mat4.multiply(projectionMatrix, projectionMatrix, viewMatrix);
 
       function frame() {
         if (device === null) return;
+
         const commandEncoder: GPUCommandEncoder = device.createCommandEncoder();
+
+        device.queue.writeBuffer(
+          uniformBuffer,
+          0,
+          projectionMatrix.buffer,
+          projectionMatrix.byteOffset,
+          projectionMatrix.byteLength
+        );
 
         if (context === null) return;
         const currentTexture: GPUTexture = context.getCurrentTexture();
-        const textureView: GPUTextureView = currentTexture.createView();
+        renderPassDescriptor.colorAttachments[0].view =
+          currentTexture.createView();
 
-        const passEncoder: GPURenderPassEncoder =
+        const passEncoder =
           commandEncoder.beginRenderPass(renderPassDescriptor);
         passEncoder.setPipeline(pipeline);
-        passEncoder.draw(3, 1, 0, 0);
+        passEncoder.setBindGroup(0, uniformBindGroup);
+        passEncoder.setVertexBuffer(0, verticesBuffer);
+        passEncoder.draw(boxGeometry.getVertexCount(), 1, 0, 0);
         passEncoder.endPass();
-        const commandBuffer: GPUCommandBuffer = commandEncoder.finish();
+        device.queue.submit([commandEncoder.finish()]);
 
-        device.queue.submit([commandBuffer]);
         requestAnimationFrame(frame);
       }
 
