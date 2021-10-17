@@ -52,7 +52,6 @@ const BoxGeometry = (): ReactElement<IBoxGeometry> => {
       if (context === null) return;
 
       const presentationFormat = context.getPreferredFormat(adapter);
-      console.log('presentationFormat : ', presentationFormat);
       const devicePixelRatio = window.devicePixelRatio || 1;
       const presentationSize = [
         canvas.clientWidth * devicePixelRatio,
